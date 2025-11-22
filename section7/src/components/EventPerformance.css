@@ -1,20 +1,53 @@
-.event-performance .performance-metrics {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
+/* EventPerformance.css */
+
+.widget {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.event-performance .metric {
-  display: flex;
-  flex-direction: column;
+.event-performance h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
 }
 
-.event-performance .metric-value {
-  font-size: 2em;
-  font-weight: bold;
+.event-list {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.event-performance .metric-label {
-  font-size: 0.9em;
-  color: #666;
+.event-list th,
+.event-list td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.event-list th {
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: 600;
+}
+
+.event-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+.metric {
+  margin-right: 12px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .event-list th,
+  .event-list td {
+    padding: 8px 6px;
+  }
 }

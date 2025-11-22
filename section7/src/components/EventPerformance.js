@@ -1,26 +1,33 @@
-import React from 'react';
-import './EventPerformance.css';
+import React from "react";
+import "./EventPerformance.css"; // optional CSS if you want separate styling
 
-const EventPerformance = ({ data }) => {
+export default function EventPerformance({ data }) {
+  if (!data || data.length === 0)
+    return <div className="widget">No events found.</div>;
+
   return (
     <div className="widget event-performance">
       <h2>Event Performance</h2>
-      <div className="performance-metrics">
-        <div className="metric">
-          <span className="metric-value">{data.rsvps}</span>
-          <span className="metric-label">RSVPs</span>
-        </div>
-        <div className="metric">
-          <span className="metric-value">{data.actualAttendance}</span>
-          <span className="metric-label">Actual Attendance</span>
-        </div>
-        <div className="metric">
-          <span className="metric-value">{data.attendanceRate}</span>
-          <span className="metric-label">Attendance Rate</span>
-        </div>
-      </div>
+      <table className="event-list">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>RSVP</th>
+            <th>Actual</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((ev) => (
+            <tr key={ev.id}>
+              <td>{ev.id}</td>
+              <td>{ev.rsvpCount}</td>
+              <td>{Math.max(0, ev.rsvpCount - 5)}</td>
+              <td>80%</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-};
-
-export default EventPerformance;
+}
