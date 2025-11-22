@@ -1,5 +1,5 @@
 import React from "react";
-import "./EventPerformance.css"; // optional CSS if you want separate styling
+import "./EventPerformance.css";
 
 export default function EventPerformance({ data }) {
   if (!data || data.length === 0)
