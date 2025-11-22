@@ -1,24 +1,40 @@
-import React from 'react';
-import './FeedbackSummary.css';
+import React from "react";
+import "./FeedbackSummary.css";
+import { feedbackSummaryData } from "./../api/FeedbackSummaryAPI";
 
-const FeedbackSummary = ({ data }) => {
+const FeedbackSummary = () => {
+  const eventRows = Object.entries(feedbackSummaryData);
+
   return (
-    <div className="widget feedback-summary">
+    <div className="widget event-performance">
       <h2>Feedback Summary</h2>
-      <div className="summary-metrics">
-        <div className="metric">
-          <span className="metric-value">{data.averageRating} / 5</span>
-          <span className="metric-label">Average Rating</span>
-        </div>
-      </div>
-      <div className="comments">
-        <h3>Comments</h3>
-        <ul>
-          {data.comments.map((comment, index) => (
-            <li key={index}>{comment}</li>
+
+      <table className="event-list">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Average Rating</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          {eventRows.map(([eventName, data]) => (
+            <tr key={eventName}>
+              <td>{eventName}</td>
+              <td>
+                <span className="rating-value">{data.averageRating} / 5</span>
+              </td>
+              <td className="comment-cell">
+                {data.comments.map((comment, index) => (
+                  <div key={index} className="comment-item">
+                    {comment}
+                  </div>
+                ))}
+              </td>
+            </tr>
           ))}
-        </ul>
-      </div>
+        </tbody>
+      </table>
     </div>
   );
 };

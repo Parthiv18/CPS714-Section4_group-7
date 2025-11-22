@@ -1,27 +1,109 @@
-.feedback-summary .summary-metrics {
-  text-align: center;
-  margin-bottom: 20px;
+/* FeedbackSummary.css */
+
+/* --- Base Widget Styling (from your example) --- */
+.widget {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 800px; /* Increased width to accommodate comments */
+  margin: 20px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.feedback-summary .metric-value {
-  font-size: 2em;
+.event-performance h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* --- Table Styling (from your example) --- */
+.event-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-list th,
+.event-list td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top; /* Align content to the top of the cell */
+}
+
+.event-list th {
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: 600;
+}
+
+.event-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* --- Custom Styles for Feedback Table --- */
+.event-list .rating-value {
   font-weight: bold;
+  color: #007bff; /* Example highlight color */
+  font-size: 1.1em;
+  white-space: nowrap; /* Keep rating on one line */
 }
 
-.feedback-summary .metric-label {
-  font-size: 0.9em;
-  color: #666;
+.event-list .comment-cell {
+  /* Ensure this column takes up most of the space */
+  width: 60%; 
 }
 
-.feedback-summary .comments ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.feedback-summary .comments li {
+.event-list .comment-item {
   background-color: #f9f9f9;
   border: 1px solid #eee;
   border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  line-height: 1.4;
+  /* Remove border/padding for the last item */
+  &:last-child {
+    margin-bottom: 0; 
+  }
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .widget {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  .event-list th,
+  .event-list td {
+    padding: 8px 6px;
+    display: block; /* Stack cells vertically on small screens */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .event-list tr {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      display: block;
+      padding: 10px;
+  }
+
+  .event-list thead {
+      display: none; /* Hide headers on small screens */
+  }
+
+  .event-list td::before {
+      content: attr(data-label); /* Use a data attribute for label */
+      font-weight: bold;
+      margin-right: 10px;
+  }
+
+  .event-list tr td:nth-child(1)::before { content: "Event Name:"; }
+  .event-list tr td:nth-child(2)::before { content: "Average Rating:"; }
+  .event-list tr td:nth-child(3)::before { content: "Comments:"; }
 }

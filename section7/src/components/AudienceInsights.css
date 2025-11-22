@@ -1,21 +1,48 @@
-.audience-insights .insights-data {
-  display: flex;
-  justify-content: space-between;
+.widget {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 1000px; /* Increased max-width for wider table */
+  margin: 20px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.audience-insights .insight-category {
-  width: 48%;
+.audience-insights h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
 }
 
-.audience-insights h3 {
-  margin-top: 0;
+.insights-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.audience-insights ul {
-  list-style-type: none;
-  padding: 0;
+.insights-table th,
+.insights-table td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid #ddd;
+  white-space: normal;
 }
 
-.audience-insights li {
-  padding: 5px 0;
+.insights-table th {
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: 600;
+}
+
+.insights-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .insights-table th,
+  .insights-table td {
+    padding: 8px 6px;
+    font-size: 0.85rem;
+  }
 }

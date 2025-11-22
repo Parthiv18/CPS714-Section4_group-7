@@ -1,32 +1,38 @@
-import React from 'react';
-import './AudienceInsights.css';
+import React from "react";
+import { audienceInsightsData } from "./../api/AudienceInsightsAPI";
+import "./AudienceInsights.css";
 
-const AudienceInsights = ({ data }) => {
+const AudienceInsights = () => {
+  const eventRows = Object.entries(audienceInsightsData);
+
+  const formatDataList = (dataObject) => {
+    return Object.entries(dataObject)
+      .map(([name, count]) => `${name} - ${count}`)
+      .join(", ");
+  };
+
   return (
     <div className="widget audience-insights">
-      <h2>Audience Insights</h2>
-      <div className="insights-data">
-        <div className="insight-category">
-          <h3>Colleges</h3>
-          <ul>
-            {Object.entries(data.colleges).map(([college, count]) => (
-              <li key={college}>
-                {college}: {count}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="insight-category">
-          <h3>Majors</h3>
-          <ul>
-            {Object.entries(data.majors).map(([major, count]) => (
-              <li key={major}>
-                {major}: {count}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <h2>Event Performance Insights</h2>
+
+      <table className="insights-table event-list">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Colleges and Counts</th>
+            <th>Majors and Counts</th>
+          </tr>
+        </thead>
+        <tbody>
+          {eventRows.map(([eventName, eventDetails]) => (
+            <tr key={eventName}>
+              <td>{eventName}</td>
+              <td>{formatDataList(eventDetails.colleges)}</td>
+              <td>{formatDataList(eventDetails.majors)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
