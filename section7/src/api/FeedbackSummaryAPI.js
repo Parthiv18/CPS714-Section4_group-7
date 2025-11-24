@@ -17,7 +17,7 @@ export const feedbackSummaryData = {
     rating: 4.5,
     comments: "No event specified"
   },
-  6: {
+  14: {
     event:"Bad",
     rating: -1,
     comments: "Negative Scores are bad"
@@ -64,5 +64,24 @@ export const feedbackSummaryData = {
   9: {
     event:"Event 2",
     rating: 0
+  },
+
+  15: {
+    event:"Event 2",
+    rating: -1
+  },
+
+  16: {
+    event:"Event 2",
+    rating: 11
+  },
+  17: {
+    event:"Event 2",
+  },
+
+  18: {
+    event:"Event 1",
+    rating: 4,
+    comments: "I enjoyed myself."
   },
 };
