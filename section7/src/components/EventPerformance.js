@@ -5,8 +5,6 @@ export default function EventPerformance({ data }) {
   if (!data || data.length === 0)
     return <div className="widget">No events found.</div>;
 
-  alert(Object.keys(data[0]));
-
   return (
     <div className="widget event-performance">
       <h2>Event Performance</h2>
@@ -24,8 +22,8 @@ export default function EventPerformance({ data }) {
             <tr key={ev.id}>
               <td>{ev.id}</td>
               <td>{ev.rsvpCount}</td>
-              <td>{Math.max(0, ev.rsvpCount - 5)}</td>
-              <td>{((Math.max(0, ev.rsvpCount - 5)/ev.rsvpCount).toFixed(2)*100)}%</td>
+              <td>{ev.actual}</td>
+              <td>{((ev.actual/ev.rsvpCount).toFixed(2)*100)}%</td>
             </tr>
           ))}
         </tbody>

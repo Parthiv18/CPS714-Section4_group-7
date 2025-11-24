@@ -41,5 +41,11 @@ export async function getEventPerformanceData() {
   const events = Array.from(map.values()).sort((a, b) =>
     a.id.localeCompare(b.id)
   );
+
+  for(var i in events)
+  {
+    events[i].actual = Math.max(events[i].rsvpCount - 2, 0);
+  }
+
   return events;
 }
