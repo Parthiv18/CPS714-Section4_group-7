@@ -53,4 +53,10 @@ export const audienceInsightsData = {
         "Computer Science":55
       }
   },
+
+  "Event 6": {
+      "Univerity of Alberta": {
+        "Engineering": 0,
+      }
+  },
 }
