@@ -21,9 +21,9 @@ export default function EventPerformance({ data }) {
           {data.map((ev) => (
             <tr key={ev.id}>
               <td>{ev.id}</td>
-              <td>{ev.rsvpCount}</td>
-              <td>{ev.actual}</td>
-              <td>{((ev.actual/ev.rsvpCount).toFixed(2)*100)}%</td>
+              <td>{ev.rsvpCount === undefined || ev.rsvpCount < 0? "-": ev.rsvpCount}</td>
+              <td>{ev.actual === undefined || ev.actual < 0 ? "-" : ev.actual}</td>
+              <td>{ev.rsvpCount <= 0 || ev.actual < 0 || ev.rsvpCount === undefined || ev.actual === undefined? "-" : ((ev.actual/ev.rsvpCount).toFixed(2)*100)}%</td>
             </tr>
           ))}
         </tbody>
